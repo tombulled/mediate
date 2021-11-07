@@ -1,26 +1,33 @@
+import collections
 import dataclasses
 import functools
+import queue
 import typing
 
 # MiddlewareCallable = typing.Callable[[typing.Callable, ...], typing.Any]
 
+# Note: import and use 'register'?
 @dataclasses.dataclass
 class Middleware:
-    middleware: typing.List[typing.Callable] = dataclasses.field(default_factory = list)
+    middleware: typing.Deque[typing.Callable] = dataclasses.field(default_factory = collections.deque)
 
     def __call__(self, func):
         self.middleware.append(func)
 
         return func
 
+    # TODO: Find better name
+    def reduce(self, func):
+        call_next = func
+
+        for middleware in self.middleware:
+            call_next = functools.partial(middleware, call_next)
+
+        return call_next
+
     def bind(self, func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
-            call_next = func
-
-            for middleware in reversed(self.middleware):
-                call_next = functools.partial(middleware, call_next)
-
-            return call_next(*args, **kwargs)
+            return self.reduce(func)(*args, **kwargs)
 
         return wrapper
