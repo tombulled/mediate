@@ -7,12 +7,16 @@ import typing
 # MiddlewareCallable = typing.Callable[[typing.Callable, ...], typing.Any]
 
 # Note: import and use 'register'?
+# Note: Offload LIFO, FIFO nonsense to 'register'?
 @dataclasses.dataclass
 class Middleware:
     middleware: typing.Deque[typing.Callable] = dataclasses.field(default_factory = collections.deque)
 
-    def __call__(self, func):
+    def add(self, func):
         self.middleware.append(func)
+
+    def __call__(self, func):
+        self.add(func)
 
         return func
 
