@@ -1,12 +1,13 @@
 [tool.poetry]
-name = "middleware"
-version = "0.1.0"
-description = ""
+name = "mediate"
+version = "0.1.1"
+description = "Middleware for every occasion"
 authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
+registrate = "^0.1.3"
 
 [tool.poetry.dev-dependencies]
 

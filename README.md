@@ -1,18 +1,18 @@
-# middleware
-Middleware for all occasions
+# mediate
+Middleware for every occasion
 
 ## Usage
 ```python
-import middleware
+import mediate
 
-middleware = middleware.Middleware() # TODO: Resolve name conflict
-
-@middleware
-def make_name_title(call_next, name):
-    return call_next(name.title())
+middleware = mediate.Middleware()
 
 @middleware
-def add_exclamation_mark(call_next, name):
+def shout(call_next, name):
+    return call_next(name.upper())
+
+@middleware
+def exclaim(call_next, name):
     return call_next(name + '!')
 
 @middleware.bind
@@ -22,5 +22,9 @@ def hello(name):
 
 ```python
 >>> hello('sam')
-Hello, Sam!
+Hello, SAM!
+>>>
+>>> middleware.remove(shout)
+>>> hello('sam')
+Hello, sam!
 ```

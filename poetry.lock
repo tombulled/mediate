@@ -1,0 +1,18 @@
+[[package]]
+name = "registrate"
+version = "0.1.4"
+description = "Python object registers. Keep track of your classes, functions and data. "
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.8"
+content-hash = "d81fce85ef3772045864434cbe66ffe26cb9ef76d13a1bb45be70cdcbf5aa29a"
+
+[metadata.files]
+registrate = [
+    {file = "registrate-0.1.4-py3-none-any.whl", hash = "sha256:1804c10121104ff93ca6c2a662714fa0957521e15d6ccd9d5aae0c2701645b93"},
+    {file = "registrate-0.1.4.tar.gz", hash = "sha256:285d260364b4ad2e6523be0e5a980f2cabfcd2ec98062e4bdc5fe2b57f710d1b"},
+]
