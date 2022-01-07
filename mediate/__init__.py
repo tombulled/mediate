@@ -1,5 +1,4 @@
 import functools
-
 import registrate
 
 class Middleware(registrate.Record):
