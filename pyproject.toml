@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "mediate"
+version = "0.1.2"
+description = "Middleware for every occasion"
+authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/tombulled/middleware"
+repository = "https://github.com/tombulled/middleware"
+documentation = "https://github.com/tombulled/middleware"
+keywords = ["python", "middleware", "mediate"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+registrate = "^0.1.6"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
