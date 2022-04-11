@@ -1,6 +1,11 @@
 # mediate
 Middleware for every occasion
 
+## Installation
+```console
+pip install mediate
+```
+
 ## Usage
 ```python
 import mediate
