@@ -1,12 +1,12 @@
 import functools
 from typing import Any, Callable
 
-import registrate
+import roster
 
 from . import utils
 
 
-class Middleware(registrate.Record):
+class Middleware(roster.Record):
     def compose(self, func: Callable) -> Callable:
         call_next: Callable = func
 
