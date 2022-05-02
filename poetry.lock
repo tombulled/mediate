@@ -179,9 +179,9 @@ tomli = ">=1.0.0"
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "xmlschema"]
 
 [[package]]
-name = "registrate"
-version = "0.1.6"
-description = "Python object registers. Keep track of your classes, functions and data. "
+name = "roster"
+version = "0.1.8"
+description = "Python object registers. Keep track of your classes, functions and data."
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
@@ -205,7 +205,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "b50be4c5d066fd9ef49c6a7d99f727d93c766de4e35d6ac54c584187e3fa3eba"
+content-hash = "413cf30c24466d03459e326ada26c7c3d30e2b89ad628c2cb804d806b43c1093"
 
 [metadata.files]
 atomicwrites = [
@@ -310,9 +310,9 @@ pytest = [
     {file = "pytest-7.1.2-py3-none-any.whl", hash = "sha256:13d0e3ccfc2b6e26be000cb6568c832ba67ba32e719443bfe725814d3c42433c"},
     {file = "pytest-7.1.2.tar.gz", hash = "sha256:a06a0425453864a270bc45e71f783330a7428defb4230fb5e6a731fde06ecd45"},
 ]
-registrate = [
-    {file = "registrate-0.1.6-py3-none-any.whl", hash = "sha256:8ed7dda6fd6b6fe29ac22af5473143eb749a622f1e4e3ed7043b5142a0b7db43"},
-    {file = "registrate-0.1.6.tar.gz", hash = "sha256:75d375bed963ad4faa02953f8ebdcbed6fa7f78a53f2da1d23ab76b0ae464b8e"},
+roster = [
+    {file = "roster-0.1.8-py3-none-any.whl", hash = "sha256:1996902111671440965a0031a8e4e1e55adf8f40d07836da10a66554584ba763"},
+    {file = "roster-0.1.8.tar.gz", hash = "sha256:adbe7a9e035aa9b3220892663dc99eba3af8cf91bc13ad267ca8ab255d9f0fb5"},
 ]
 tomli = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
