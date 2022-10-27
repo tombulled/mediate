@@ -1,9 +1,9 @@
-from dataclasses import dataclass, field
 import functools
+from dataclasses import dataclass, field
 from typing import Callable, Generic, Protocol, TypeVar
-from typing_extensions import ParamSpec
 
 from roster import Record
+from typing_extensions import ParamSpec
 
 PS = ParamSpec("PS")
 RT = TypeVar("RT")
@@ -11,7 +11,7 @@ RT = TypeVar("RT")
 
 class MiddlewareCallable(Protocol[PS, RT]):
     def __call__(
-        self, call_next: Callable[PS, RT], *args: PS.args, **kwargs: PS.kwargs
+        self, call_next: Callable[PS, RT], /, *args: PS.args, **kwargs: PS.kwargs
     ) -> RT:
         ...
 
