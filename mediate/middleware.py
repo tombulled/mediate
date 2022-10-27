@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from functools import wraps
-from typing import Callable, Generic
+from typing import Callable, Generic, SupportsIndex
 
 from roster import Record
 
@@ -16,7 +16,22 @@ class Middleware(Generic[PS, RT]):
     def __call__(
         self, middleware: MiddlewareCallable[PS, RT], /
     ) -> MiddlewareCallable[PS, RT]:
-        return self.record(middleware)
+        self.add(middleware)
+
+        return middleware
+
+    def add(self, middleware: MiddlewareCallable[PS, RT], /) -> None:
+        if middleware not in self.record:
+            self.record.record(middleware)
+
+    def remove(self, middleware: MiddlewareCallable[PS, RT], /) -> None:
+        self.record.remove(middleware)
+
+    def contains(self, middleware: MiddlewareCallable[PS, RT], /) -> bool:
+        return middleware in self.record
+
+    def insert(self, index: SupportsIndex, middleware: MiddlewareCallable[PS, RT], /):
+        self.record.insert(index, middleware)
 
     def compose(self, sinc: Callable[PS, RT], /) -> Callable[PS, RT]:
         call_next: Callable[PS, RT] = sinc
