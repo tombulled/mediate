@@ -28,8 +28,4 @@ def hello(name):
 ```python
 >>> hello('sam')
 Hello, SAM!
->>>
->>> middleware.remove(shout)
->>> hello('sam')
-Hello, sam!
 ```
