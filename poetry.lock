@@ -188,7 +188,7 @@ testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.
 
 [[package]]
 name = "roster"
-version = "0.1.8"
+version = "0.1.11"
 description = "Python object registers. Keep track of your classes, functions and data."
 category = "main"
 optional = false
@@ -206,14 +206,14 @@ python-versions = ">=3.7"
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "8b98e4b7fad6f6bc3883591af374077affc0c2b2fdf88f83f14623c1325743a3"
+content-hash = "1e9af3b84eded85aa1788365d33fbdf0b83f4bca87dbbea11382f478eb4de1e7"
 
 [metadata.files]
 attrs = [
@@ -317,8 +317,8 @@ pytest = [
     {file = "pytest-7.2.0.tar.gz", hash = "sha256:c4014eb40e10f11f355ad4e3c2fb2c6c6d1919c73f3b5a433de4708202cade59"},
 ]
 roster = [
-    {file = "roster-0.1.8-py3-none-any.whl", hash = "sha256:1996902111671440965a0031a8e4e1e55adf8f40d07836da10a66554584ba763"},
-    {file = "roster-0.1.8.tar.gz", hash = "sha256:adbe7a9e035aa9b3220892663dc99eba3af8cf91bc13ad267ca8ab255d9f0fb5"},
+    {file = "roster-0.1.11-py3-none-any.whl", hash = "sha256:4703c3ff53b694452ff727e7b9e6e74616dd6c2df3b9de5c5dc9151936a315ba"},
+    {file = "roster-0.1.11.tar.gz", hash = "sha256:467c44075d554b387c52cddf025419c46af4daa74c6d900a057d6ad6fdec5f4d"},
 ]
 tomli = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},

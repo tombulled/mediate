@@ -13,6 +13,7 @@ keywords = ["python", "middleware", "mediate"]
 [tool.poetry.dependencies]
 python = "^3.8"
 roster = "^0.1.11"
+typing-extensions = "^4.4.0"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.950"
