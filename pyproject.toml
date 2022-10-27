@@ -12,12 +12,13 @@ keywords = ["python", "middleware", "mediate"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-roster = "^0.1.8"
+roster = "^0.1.11"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.950"
 pytest = "^7.1.2"
 black = "^22.3.0"
+isort = "^5.10.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -30,4 +31,3 @@ show_error_codes = true
 warn_redundant_casts = true
 warn_unused_configs = true
 warn_unused_ignores = true
-files = "src"
