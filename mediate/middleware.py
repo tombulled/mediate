@@ -1,28 +1,12 @@
-import functools
 from dataclasses import dataclass, field
-from typing import Callable, Generic, Protocol, TypeVar
+from functools import wraps
+from typing import Callable, Generic
 
 from roster import Record
-from typing_extensions import ParamSpec
 
-PS = ParamSpec("PS")
-RT = TypeVar("RT")
-
-
-class MiddlewareCallable(Protocol[PS, RT]):
-    def __call__(
-        self, call_next: Callable[PS, RT], /, *args: PS.args, **kwargs: PS.kwargs
-    ) -> RT:
-        ...
-
-
-@dataclass
-class PartialMiddlewareCallable(Generic[PS, RT]):
-    middleware: MiddlewareCallable[PS, RT]
-    call_next: Callable[PS, RT]
-
-    def __call__(self, *args: PS.args, **kwargs: PS.kwargs) -> RT:
-        return self.middleware(self.call_next, *args, **kwargs)
+from .partial import PartialMiddlewareCallable
+from .protocols import MiddlewareCallable
+from .typing import PS, RT
 
 
 @dataclass
@@ -44,7 +28,7 @@ class Middleware(Generic[PS, RT]):
         return call_next
 
     def bind(self, sinc: Callable[PS, RT], /) -> Callable[PS, RT]:
-        @functools.wraps(sinc)
+        @wraps(sinc)
         def wrapper(*args: PS.args, **kwargs: PS.kwargs):
             return self.compose(sinc)(*args, **kwargs)
 
