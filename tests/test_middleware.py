@@ -6,7 +6,7 @@ from mediate import Middleware
 
 Greeter: TypeAlias = Callable[[str], str]
 
-middleware: "Middleware[str, str]" = Middleware()
+middleware: Middleware[str, str] = Middleware()
 
 
 @middleware
