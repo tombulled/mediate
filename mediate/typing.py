@@ -1,6 +1,9 @@
-from typing import TypeVar
+from typing import Sequence, TypeVar
 
-from typing_extensions import ParamSpec
+__all__: Sequence[str] = (
+    "In",
+    "Out",
+)
 
-PS = ParamSpec("PS")
-RT = TypeVar("RT")
+In = TypeVar("In")
+Out = TypeVar("Out")

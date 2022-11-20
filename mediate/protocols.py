@@ -1,10 +1,10 @@
-from typing import Callable, Protocol
+from typing import Callable, Protocol, Sequence
 
-from .typing import PS, RT
+from .typing import In, Out
+
+__all__: Sequence[str] = ("MiddlewareCallable",)
 
 
-class MiddlewareCallable(Protocol[PS, RT]):
-    def __call__(
-        self, call_next: Callable[PS, RT], /, *args: PS.args, **kwargs: PS.kwargs
-    ) -> RT:
+class MiddlewareCallable(Protocol[In, Out]):
+    def __call__(self, call_next: Callable[[In], Out], in_: In, /) -> Out:
         ...
