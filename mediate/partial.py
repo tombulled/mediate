@@ -1,14 +1,16 @@
 from dataclasses import dataclass
-from typing import Callable, Generic
+from typing import Callable, Generic, Sequence
 
 from .protocols import MiddlewareCallable
-from .typing import PS, RT
+from .typing import In, Out
+
+__all__: Sequence[str] = ("PartialMiddlewareCallable",)
 
 
 @dataclass
-class PartialMiddlewareCallable(Generic[PS, RT]):
-    middleware: MiddlewareCallable[PS, RT]
-    call_next: Callable[PS, RT]
+class PartialMiddlewareCallable(Generic[In, Out]):
+    middleware: MiddlewareCallable[In, Out]
+    call_next: Callable[[In], Out]
 
-    def __call__(self, *args: PS.args, **kwargs: PS.kwargs) -> RT:
-        return self.middleware(self.call_next, *args, **kwargs)
+    def __call__(self, in_: In, /) -> Out:
+        return self.middleware(self.call_next, in_)
