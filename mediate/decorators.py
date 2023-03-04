@@ -1,17 +1,18 @@
-from typing import Callable, Sequence
+from typing import Sequence
 
 from roster import Record
 
 from .middleware import Middleware
+from .protocols import Decorator, Function, MiddlewareCallable
 from .typing import In, Out
 
 __all__: Sequence[str] = ("middleware",)
 
 
 def middleware(
-    *middlewares: Callable[[Callable[[In], Out], In], Out]
-) -> Callable[[Callable[[In], Out]], Callable[[In], Out]]:
-    def decorate(callable: Callable[[In], Out], /) -> Callable[[In], Out]:
+    *middlewares: MiddlewareCallable[In, Out]
+) -> Decorator[Function[In, Out]]:
+    def decorate(callable: Function[In, Out], /) -> Function[In, Out]:
         middleware: Middleware[In, Out] = Middleware(record=Record(middlewares))
 
         return middleware.compose(callable)

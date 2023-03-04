@@ -1,11 +1,11 @@
 from dataclasses import dataclass, field
 from functools import wraps
-from typing import Callable, Generic, Sequence, SupportsIndex
+from typing import Generic, Sequence, SupportsIndex
 
 from roster import Record
 
 from .partial import PartialMiddlewareCallable
-from .protocols import MiddlewareCallable
+from .protocols import Function, MiddlewareCallable
 from .typing import In, Out
 
 __all__: Sequence[str] = ("Middleware",)
@@ -35,8 +35,8 @@ class Middleware(Generic[In, Out]):
     def insert(self, index: SupportsIndex, middleware: MiddlewareCallable[In, Out], /):
         self.record.insert(index, middleware)
 
-    def compose(self, sinc: Callable[[In], Out], /) -> Callable[[In], Out]:
-        call_next: Callable[[In], Out] = sinc
+    def compose(self, sinc: Function[In, Out], /) -> Function[In, Out]:
+        call_next: Function[In, Out] = sinc
 
         middleware: MiddlewareCallable[In, Out]
         for middleware in self.record:
@@ -44,7 +44,7 @@ class Middleware(Generic[In, Out]):
 
         return call_next
 
-    def bind(self, sinc: Callable[[In], Out], /) -> Callable[[In], Out]:
+    def bind(self, sinc: Function[In, Out], /) -> Function[In, Out]:
         @wraps(sinc)
         def wrapper(in_: In, /) -> Out:
             return self.compose(sinc)(in_)
