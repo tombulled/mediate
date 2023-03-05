@@ -26,6 +26,11 @@ class Middleware(Generic[In, Out]):
         if middleware not in self.record:
             self.record.record(middleware)
 
+    def add_all(self, middleware: Sequence[MiddlewareCallable[In, Out]], /) -> None:
+        middleware_callable: MiddlewareCallable[In, Out]
+        for middleware_callable in middleware:
+            self.add(middleware_callable)
+
     def remove(self, middleware: MiddlewareCallable[In, Out], /) -> None:
         self.record.remove(middleware)
 
