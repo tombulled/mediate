@@ -15,7 +15,6 @@ python = "^3.8"
 roster = "^0.1.11"
 
 [tool.poetry.group.dev.dependencies]
-typing-extensions = "^4.4.0"
 mypy = "^0.950"
 pytest = "^7.1.2"
 black = "^22.3.0"
