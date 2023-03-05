@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mediate"
-version = "0.1.7"
+version = "0.1.8"
 description = "Middleware for every occasion"
 authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
 license = "MIT"
