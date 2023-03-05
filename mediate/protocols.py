@@ -1,4 +1,4 @@
-from typing import Protocol, Sequence, TypeVar
+from typing import Any, Protocol, Sequence, TypeVar
 
 from .typing import In, Out
 
@@ -6,6 +6,7 @@ __all__: Sequence[str] = (
     "Decorator",
     "Function",
     "MiddlewareCallable",
+    "MiddlewareMethod",
 )
 
 T = TypeVar("T", contravariant=True)
@@ -25,4 +26,9 @@ class Decorator(Protocol[V]):
 
 class MiddlewareCallable(Protocol[In, Out]):
     def __call__(self, call_next: Function[In, Out], in_: In, /) -> Out:
+        ...
+
+
+class MiddlewareMethod(Protocol[In, Out]):
+    def __call__(self, obj: Any, call_next: Function[In, Out], in_: In, /) -> Out:
         ...
